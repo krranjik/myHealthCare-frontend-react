@@ -13,7 +13,7 @@ class Footer extends React.Component {
                             </ul>
                         </div>
                         <div className="col-sm-6 text-center text-sm-left mt-3 mt-sm-0">
-                            <small className="text-muted d-block">Copyright © 2020. All rights reserved</small>
+                            <small className="text-muted d-block">myHealth Care © 2020. All rights reserved</small>
                         </div>
                     </div>
                 </footer>

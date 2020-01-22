@@ -66,53 +66,7 @@ class Header extends React.Component {
                                         </div>
                                     </div>
                                 </li>
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="#" id="messageDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <i className="mdi mdi-message-outline mdi-1x"></i>
-                                        <span className="notification-indicator notification-indicator-primary notification-indicator-ripple"></span>
-                                    </a>
-                                    <div className="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="messageDropdown">
-                                        <div className="dropdown-header">
-                                            <h6 className="dropdown-title">Messages</h6>
-                                            <p className="dropdown-title-text">You have 4 unread messages</p>
-                                        </div>
-                                        <div className="dropdown-body">
-                                            <div className="dropdown-list">
-                                                <div className="image-wrapper">
-                                                    <img className="profile-img" src="../assets/images/profile/male/image_1.png" alt="profile image" />
-                                                    <div className="status-indicator rounded-indicator bg-success"></div>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Clifford Gordon</small>
-                                                    <small className="content-text">Lorem ipsum dolor sit amet.</small>
-                                                </div>
-                                            </div>
-                                            <div className="dropdown-list">
-                                                <div className="image-wrapper">
-                                                    <img className="profile-img" src="../assets/images/profile/female/image_2.png" alt="profile image" />
-                                                    <div className="status-indicator rounded-indicator bg-success"></div>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Rachel Doyle</small>
-                                                    <small className="content-text">Lorem ipsum dolor sit amet.</small>
-                                                </div>
-                                            </div>
-                                            <div className="dropdown-list">
-                                                <div className="image-wrapper">
-                                                    <img className="profile-img" src="../assets/images/profile/male/image_3.png" alt="profile image" />
-                                                    <div className="status-indicator rounded-indicator bg-warning"></div>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Lewis Guzman</small>
-                                                    <small className="content-text">Lorem ipsum dolor sit amet.</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="dropdown-footer">
-                                            <a href="#">View All</a>
-                                        </div>
-                                    </div>
-                                </li>
+
                                 <li className="nav-item dropdown">
                                     <a className="nav-link" href="#" id="appsDropdown" data-toggle="dropdown" aria-expanded="false">
                                         <i className="mdi mdi-apps mdi-1x"></i>
@@ -149,82 +103,83 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </nav>
-                <div class="sidebar">
-                    <div class="user-profile">
-                        <div class="display-avatar animated-avatar">
-                            <img class="profile-img img-lg rounded-circle" src="/images/profile/male/image_1.png" alt="profile image"/>
-          </div>
-                            <div class="info-wrapper">
-                                <p class="user-name">Welcome, Admin</p>
-                            </div>
+                <div className="sidebar" style={{ minHeight: 0  }}>
+                    <div className="user-profile">
+                        <div className="display-avatar animated-avatar">
+                            <img className="profile-img img-lg rounded-circle" src="/images/profile/male/image_1.png" alt="profile image" />
                         </div>
-                        <ul class="navigation-menu">
-                            <li class="nav-category-divider">MAIN</li>
-                            <li>
-                                <a href="index.html">
-                                    <span class="link-title">Dashboard</span>
-                                    <i class="mdi mdi-gauge link-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
-                                    <span class="link-title">Sample Pages</span>
-                                    <i class="mdi mdi-flask link-icon"></i>
-                                </a>
-                                <ul class="collapse navigation-submenu" id="sample-pages">
-                                    <li>
-                                        <a href="pages/sample-pages/login_1.html" target="_blank">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/sample-pages/error_2.html" target="_blank">Error</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
-                                    <span class="link-title">UI Elements</span>
-                                    <i class="mdi mdi-bullseye link-icon"></i>
-                                </a>
-                                <ul class="collapse navigation-submenu" id="ui-elements">
-                                    <li>
-                                        <a href="pages/ui-components/buttons.html">Buttons</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/ui-components/tables.html">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/ui-components/typography.html">Typography</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-elements.html">
-                                    <span class="link-title">Forms</span>
-                                    <i class="mdi mdi-clipboard-outline link-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/chartjs.html">
-                                    <span class="link-title">Charts</span>
-                                    <i class="mdi mdi-chart-donut link-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="pages/icons/material-icons.html">
-                                    <span class="link-title">Icons</span>
-                                    <i class="mdi mdi-flower-tulip-outline link-icon"></i>
-                                </a>
-                            </li>
-                            <li class="nav-category-divider">DOCS</li>
-                            <li>
-                                <a href="../docs/docs.html">
-                                    <span class="link-title">Documentation</span>
-                                    <i class="mdi mdi-asterisk link-icon"></i>
-                                </a>
-                            </li>
-                        </ul>
-                       
+                        <div className="info-wrapper">
+                            <p className="user-name">Welcome, Admin</p>
+                        </div>
                     </div>
+                    <ul className="navigation-menu">
+                        <li className="nav-category-divider">MAIN</li>
+                        <li>
+                            <a href="index.html">
+                                <span className="link-title">Dashboard</span>
+                                <i className="mdi mdi-gauge link-icon"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/forms/form-elements.html">
+                                <span className="link-title">Patients</span>
+                                <i className="fas fa-users link-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/charts/chartjs.html">                              <span className="link-title">Doctors</span>
+                                <i className="fas fa-user-md link-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
+                                <span className="link-title">Reports</span>
+                                <i className="fas fa-file-alt link-icon"></i>
+                            </a>
+                            <ul className="collapse navigation-submenu" id="sample-pages">
+                                <li>
+                                    <a href="pages/sample-pages/login_1.html" target="_blank">Medical Reports</a>
+                                </li>
+                                <li>
+                                    <a href="pages/sample-pages/error_2.html" target="_blank">Prescriptions</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
+                                <span className="link-title">Appointment</span>
+                                <i className="fas fa-calendar-check link-icon"></i>
+
+                            </a>
+                            <ul className="collapse navigation-submenu" id="ui-elements">
+                                <li>
+                                    <a href="pages/ui-components/buttons.html">Requested Appointment</a>
+                                </li>
+                                <li>
+                                    <a href="pages/ui-components/tables.html">Appointment List</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li className="nav-category-divider">SITE SETTINGS</li>
+                        <li>
+                            <a href="../docs/docs.html">
+                                <span className="link-title">Settings</span>
+                                <i className="fas fa-cog link-icon"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../docs/docs.html">
+                                <span className="link-title">Logout</span>
+                                <i className="fas fa-sign-out-alt link-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
             </div>
 
 
