@@ -3,186 +3,251 @@ import React from "react";
 class Header extends React.Component {
     render() {
         return (
-            <div>
-                <nav className="t-header">
-                    <div className="t-header-brand-wrapper">
-                        <a href="index.html">
-                            <img className="logo" src="../assets/images/logo.svg" alt="" />
-                            <img className="logo-mini" src="../assets/images/logo_mini.svg" alt="" />
-                        </a>
-                    </div>
-                    <div className="t-header-content-wrapper">
-                        <div className="t-header-content">
-                            <button className="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
-                                <i className="mdi mdi-menu"></i>
-                            </button>
-                            <form action="#" className="t-header-search-box">
-                                <div className="input-group">
-                                    <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off" />
-                                    <button className="btn btn-primary" type="submit"><i className="mdi mdi-arrow-right-thick"></i></button>
+            <div class="container-scroller">
+
+                <div class="horizontal-menu">
+                    <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+                        <div class="container-fluid">
+                            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+                                <ul class="navbar-nav navbar-nav-left">
+                                    <li class="nav-item ml-0 mr-5 d-lg-flex d-none">
+                                        <a href="#" class="nav-link horizontal-nav-left-menu"><i class="mdi mdi-format-list-bulleted"></i></a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+                                            <i class="mdi mdi-bell mx-0"></i>
+                                            <span class="count bg-success">2</span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <div class="preview-icon bg-success">
+                                                        <i class="mdi mdi-information mx-0"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                                        Just now
+                        </p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <div class="preview-icon bg-warning">
+                                                        <i class="mdi mdi-settings mx-0"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                                        Private message
+                        </p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <div class="preview-icon bg-info">
+                                                        <i class="mdi mdi-account-box mx-0"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                                        2 days ago
+                        </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+                                            <i class="mdi mdi-email mx-0"></i>
+                                            <span class="count bg-primary">4</span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                                            <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic" />
+                                                </div>
+                                                <div class="preview-item-content flex-grow">
+                                                    <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                        </h6>
+                                                    <p class="font-weight-light small-text text-muted mb-0">
+                                                        The meeting is cancelled
+                        </p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic" />
+                                                </div>
+                                                <div class="preview-item-content flex-grow">
+                                                    <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                        </h6>
+                                                    <p class="font-weight-light small-text text-muted mb-0">
+                                                        New product launch
+                        </p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item">
+                                                <div class="preview-thumbnail">
+                                                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic" />
+                                                </div>
+                                                <div class="preview-item-content flex-grow">
+                                                    <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                        </h6>
+                                                    <p class="font-weight-light small-text text-muted mb-0">
+                                                        Upcoming board meeting
+                        </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a href="#" class="nav-link count-indicator "><i class="mdi mdi-message-reply-text"></i></a>
+                                    </li>
+                                    <li class="nav-item nav-search d-none d-lg-block ml-3">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="search">
+                                                    <i class="mdi mdi-magnify"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="search" />
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                                    <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a>
+                                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
                                 </div>
-                            </form>
-                            <ul className="nav ml-auto">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <i className="mdi mdi-bell-outline mdi-1x"></i>
+                                <ul class="navbar-nav navbar-nav-right">
+                                    <li class="nav-item dropdown  d-lg-flex d-none">
+                                        <button type="button" class="btn btn-inverse-primary btn-sm">Product </button>
+                                    </li>
+                                    <li class="nav-item dropdown d-lg-flex d-none">
+                                        <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm" id="nreportDropdown" href="#" data-toggle="dropdown">
+                                            Reports
+                  </a>
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="nreportDropdown">
+                                            <p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
+                                            <a class="dropdown-item">
+                                                <i class="mdi mdi-file-pdf text-primary"></i>
+                                                Pdf
+                      </a>
+                                            <a class="dropdown-item">
+                                                <i class="mdi mdi-file-excel text-primary"></i>
+                                                Exel
+                      </a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown d-lg-flex d-none">
+                                        <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
+                                    </li>
+                                    <li class="nav-item nav-profile dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                                            <span class="nav-profile-name">Johnson</span>
+                                            <span class="online-status"></span>
+                                            <img src="images/faces/face28.png" alt="profile" />
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                            <a class="dropdown-item">
+                                                <i class="mdi mdi-settings text-primary"></i>
+                                                Settings
+                      </a>
+                                            <a class="dropdown-item">
+                                                <i class="mdi mdi-logout text-primary"></i>
+                                                Logout
+                      </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                                    <span class="mdi mdi-menu"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                    <nav class="bottom-navbar">
+                        <div class="container">
+                            <ul class="nav page-navigation">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">
+                                        <i class="mdi mdi-file-document-box menu-icon"></i>
+                                        <span class="menu-title">Dashboard</span>
                                     </a>
-                                    <div className="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="notificationDropdown">
-                                        <div className="dropdown-header">
-                                            <h6 className="dropdown-title">Notifications</h6>
-                                            <p className="dropdown-title-text">You have 4 unread notification</p>
-                                        </div>
-                                        <div className="dropdown-body">
-                                            <div className="dropdown-list">
-                                                <div className="icon-wrapper rounded-circle bg-inverse-primary text-primary">
-                                                    <i className="mdi mdi-alert"></i>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Storage Full</small>
-                                                    <small className="content-text">Server storage almost full</small>
-                                                </div>
-                                            </div>
-                                            <div className="dropdown-list">
-                                                <div className="icon-wrapper rounded-circle bg-inverse-success text-success">
-                                                    <i className="mdi mdi-cloud-upload"></i>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Upload Completed</small>
-                                                    <small className="content-text">3 Files uploded successfully</small>
-                                                </div>
-                                            </div>
-                                            <div className="dropdown-list">
-                                                <div className="icon-wrapper rounded-circle bg-inverse-warning text-warning">
-                                                    <i className="mdi mdi-security"></i>
-                                                </div>
-                                                <div className="content-wrapper">
-                                                    <small className="name">Authentication Required</small>
-                                                    <small className="content-text">Please verify your password to continue using cloud services</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="dropdown-footer">
-                                            <a href="#">View All</a>
-                                        </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="mdi mdi-cube-outline menu-icon"></i>
+                                        <span class="menu-title">UI Elements</span>
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                    <div class="submenu">
+                                        <ul>
+                                            <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                                        </ul>
                                     </div>
                                 </li>
-
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="#" id="appsDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <i className="mdi mdi-apps mdi-1x"></i>
+                                <li class="nav-item">
+                                    <a href="pages/forms/basic_elements.html" class="nav-link">
+                                        <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                                        <span class="menu-title">Form Elements</span>
+                                        <i class="menu-arrow"></i>
                                     </a>
-                                    <div className="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
-                                        <div className="dropdown-header">
-                                            <h6 className="dropdown-title">Apps</h6>
-                                            <p className="dropdown-title-text mt-2">Authentication required for 3 apps</p>
-                                        </div>
-                                        <div className="dropdown-body border-top pt-0">
-                                            <a className="dropdown-grid">
-                                                <i className="grid-icon mdi mdi-jira mdi-2x"></i>
-                                                <span className="grid-tittle">Jira</span>
-                                            </a>
-                                            <a className="dropdown-grid">
-                                                <i className="grid-icon mdi mdi-trello mdi-2x"></i>
-                                                <span className="grid-tittle">Trello</span>
-                                            </a>
-                                            <a className="dropdown-grid">
-                                                <i className="grid-icon mdi mdi-artstation mdi-2x"></i>
-                                                <span className="grid-tittle">Artstation</span>
-                                            </a>
-                                            <a className="dropdown-grid">
-                                                <i className="grid-icon mdi mdi-bitbucket mdi-2x"></i>
-                                                <span className="grid-tittle">Bitbucket</span>
-                                            </a>
-                                        </div>
-                                        <div className="dropdown-footer">
-                                            <a href="#">View All</a>
-                                        </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                        <i class="mdi mdi-finance menu-icon"></i>
+                                        <span class="menu-title">Charts</span>
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/tables/basic-table.html" class="nav-link">
+                                        <i class="mdi mdi-grid menu-icon"></i>
+                                        <span class="menu-title">Tables</span>
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/icons/mdi.html" class="nav-link">
+                                        <i class="mdi mdi-emoticon menu-icon"></i>
+                                        <span class="menu-title">Icons</span>
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="mdi mdi-codepen menu-icon"></i>
+                                        <span class="menu-title">Sample Pages</span>
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                    <div class="submenu">
+                                        <ul class="submenu-item">
+                                            <li class="nav-item"><a class="nav-link" href="pages/samples/login.html">Login</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="pages/samples/login-2.html">Login 2</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Register</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="pages/samples/register-2.html">Register 2</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="pages/samples/lock-screen.html">Lockscreen</a></li>
+                                        </ul>
                                     </div>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div className="sidebar" style={{ minHeight: 0  }}>
-                    <div className="user-profile">
-                        <div className="display-avatar animated-avatar">
-                            <img className="profile-img img-lg rounded-circle" src="/images/profile/male/image_1.png" alt="profile image" />
-                        </div>
-                        <div className="info-wrapper">
-                            <p className="user-name">Welcome, Admin</p>
-                        </div>
-                    </div>
-                    <ul className="navigation-menu">
-                        <li className="nav-category-divider">MAIN</li>
-                        <li>
-                            <a href="index.html">
-                                <span className="link-title">Dashboard</span>
-                                <i className="mdi mdi-gauge link-icon"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="pages/forms/form-elements.html">
-                                <span className="link-title">Patients</span>
-                                <i className="fas fa-users link-icon"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/charts/chartjs.html">                              <span className="link-title">Doctors</span>
-                                <i className="fas fa-user-md link-icon"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
-                                <span className="link-title">Reports</span>
-                                <i className="fas fa-file-alt link-icon"></i>
-                            </a>
-                            <ul className="collapse navigation-submenu" id="sample-pages">
-                                <li>
-                                    <a href="pages/sample-pages/login_1.html" target="_blank">Medical Reports</a>
-                                </li>
-                                <li>
-                                    <a href="pages/sample-pages/error_2.html" target="_blank">Prescriptions</a>
+                                <li class="nav-item">
+                                    <a href="docs/documentation.html" class="nav-link">
+                                        <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+                                        <span class="menu-title">Documentation</span></a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
-                                <span className="link-title">Appointment</span>
-                                <i className="fas fa-calendar-check link-icon"></i>
-
-                            </a>
-                            <ul className="collapse navigation-submenu" id="ui-elements">
-                                <li>
-                                    <a href="pages/ui-components/buttons.html">Requested Appointment</a>
-                                </li>
-                                <li>
-                                    <a href="pages/ui-components/tables.html">Appointment List</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li className="nav-category-divider">SITE SETTINGS</li>
-                        <li>
-                            <a href="../docs/docs.html">
-                                <span className="link-title">Settings</span>
-                                <i className="fas fa-cog link-icon"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="../docs/docs.html">
-                                <span className="link-title">Logout</span>
-                                <i className="fas fa-sign-out-alt link-icon"></i>
-                            </a>
-                        </li>
-                    </ul>
-
+                        </div>
+                    </nav>
                 </div>
+
             </div>
-
-
         )
     }
 
