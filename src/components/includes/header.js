@@ -151,7 +151,7 @@ class Header extends React.Component {
                                         <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                                             <span className="nav-profile-name">Welcome, Admin</span>
                                             <span className="online-status"></span>
-                                            <img src="images/faces/face28.png" alt="profile" />
+                                            <img src="images/kritik.jpg" alt="profile" />
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                                             <a className="dropdown-item">
