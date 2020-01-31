@@ -116,7 +116,7 @@ class Header extends React.Component {
                                                     <i class="mdi mdi-magnify"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="search" />
+                                            <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="search" />
                                         </div>
                                     </li>
                                 </ul>
@@ -149,7 +149,7 @@ class Header extends React.Component {
                                     </li>
                                     <li class="nav-item nav-profile dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                                            <span class="nav-profile-name">Johnson</span>
+                                            <span class="nav-profile-name">Welcome, Admin</span>
                                             <span class="online-status"></span>
                                             <img src="images/faces/face28.png" alt="profile" />
                                         </a>
@@ -176,72 +176,46 @@ class Header extends React.Component {
                             <ul class="nav page-navigation">
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">
-                                        <i class="mdi mdi-file-document-box menu-icon"></i>
+                                        <i class="mdi mdi-view-dashboard menu-icon"></i>
                                         <span class="menu-title">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="mdi mdi-cube-outline menu-icon"></i>
-                                        <span class="menu-title">UI Elements</span>
+                                        <i class="mdi mdi-account menu-icon"></i>
+                                        <span class="menu-title">Patients</span>
                                         <i class="menu-arrow"></i>
                                     </a>
-                                    <div class="submenu">
-                                        <ul>
-                                            <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                                        </ul>
-                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/forms/basic_elements.html" class="nav-link">
-                                        <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                                        <span class="menu-title">Form Elements</span>
+                                        <i class="mdi mdi-account-star menu-icon"></i>
+                                        <span class="menu-title">Doctors</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="mdi mdi-finance menu-icon"></i>
-                                        <span class="menu-title">Charts</span>
+                                        <i class="mdi mdi-file-document menu-icon"></i>
+                                        <span class="menu-title">Medical Reports</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/tables/basic-table.html" class="nav-link">
-                                        <i class="mdi mdi-grid menu-icon"></i>
-                                        <span class="menu-title">Tables</span>
+                                        <i class="mdi mdi-clipboard-text menu-icon"></i>
+                                        <span class="menu-title">Prescriptions</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/icons/mdi.html" class="nav-link">
-                                        <i class="mdi mdi-emoticon menu-icon"></i>
-                                        <span class="menu-title">Icons</span>
+                                        <i class="mdi mdi-calendar-plus menu-icon"></i>
+                                        <span class="menu-title">Appointment</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="mdi mdi-codepen menu-icon"></i>
-                                        <span class="menu-title">Sample Pages</span>
-                                        <i class="menu-arrow"></i>
-                                    </a>
-                                    <div class="submenu">
-                                        <ul class="submenu-item">
-                                            <li class="nav-item"><a class="nav-link" href="pages/samples/login.html">Login</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pages/samples/login-2.html">Login 2</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Register</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pages/samples/register-2.html">Register 2</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pages/samples/lock-screen.html">Lockscreen</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="docs/documentation.html" class="nav-link">
-                                        <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                                        <span class="menu-title">Documentation</span></a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </nav>
