@@ -121,8 +121,8 @@ class Header extends React.Component {
                                     </li>
                                 </ul>
                                 <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                                    <a className="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a>
-                                    <a className="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+                                    <a className="navbar-brand brand-logo" href="#"><img src="images/appLogo.png" alt="logo" /></a>
+                                    <a className="navbar-brand brand-logo-mini" href="#"><img src="images/appLogo.png" alt="logo" /></a>
                                 </div>
                                 <ul className="navbar-nav navbar-nav-right">
                                     <li className="nav-item dropdown  d-lg-flex d-none">

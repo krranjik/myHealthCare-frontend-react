@@ -1,36 +1,40 @@
 import React from 'react';
 
-class GetDoctors extends React.Component {
+class GetPatients extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            doctorData: this.props.doctorData,
+            patientData: this.props.patientData,
         }
     }
 
     componentWillReceiveProps(nextprops) {
-        if (nextprops.doctorData !== this.state.doctorData) {
+        if (nextprops.patientData !== this.state.patientData) {
             this.setState({
-                doctorData: nextprops.doctorData
+                patientData: nextprops.patientData
             })
         }
     }
 
     render() {
-        var doctorData = this.state.doctorData
-        doctorData = doctorData.map((val, index) => {
+        var patientData = this.state.patientData
+        patientData = patientData.map((val, index) => {
             return (
                 <tr>
                     <td className="py-1">
                         <img src={'http://localhost:4444/public/' + val.image} alt="image" style={{ 'height': '100px', 'width': '100px' }} />
                     </td>
                     <td>{val.name}</td>
+                    <td>{val.username}</td>
+                    <td>{val.password}</td>
+                    <td>{val.email}</td>
+                    <td>{val.address}</td>
+                    <td>{val.dob}</td>
                     <td>{val.gender}</td>
-                    <td>{val.department}</td>
+                    <td>{val.bloodgroup}</td>
+                    <td>{val.weight}</td>
+                    <td>{val.height}</td>
                     <td>{val.phone}</td>
-                    <td>{val.location}</td>
-                    <td>{val.description}</td>
-                    <td>{val.rating}</td>
                 </tr>
             )
         })
@@ -38,11 +42,11 @@ class GetDoctors extends React.Component {
             <div className="col-lg-12 grid-margin stretch-card">
                 <div className="card">
                     <div className="card-body">
-                        <h1 className="card-title float-left">List of Doctors</h1>
+                        <h1 className="card-title float-left">List of Patients</h1>
 
-                        <button type="button" class="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addDoctor'>
+                        <button type="button" class="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addPatient'>
                             <i class="mdi mdi-account-plus btn-icon-prepend"></i>
-                            Add Doctor
+                            Add Patient
                         </button>
 
                         <div className="table-responsive">
@@ -50,18 +54,22 @@ class GetDoctors extends React.Component {
                                 <thead>
                                     <tr>
                                         <th><b>Image</b></th>
-                                        <th><b>Doctor Name</b></th>
+                                        <th><b>Name</b></th>
+                                        <th><b>Username</b></th>
+                                        <th><b>Password</b></th>
+                                        <th><b>Email</b></th>
+                                        <th><b>Address</b></th>
+                                        <th><b>DOB</b></th>
                                         <th><b>Gender</b></th>
-                                        <th><b>Department</b></th>
+                                        <th><b>Blood Group</b></th>
+                                        <th><b>Weight</b></th>
+                                        <th><b>Height</b></th>
                                         <th><b>Phone</b></th>
-                                        <th><b>Location</b></th>
-                                        <th><b>Description</b></th>
-                                        <th><b>Rating</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        doctorData
+                                        patientData
                                     }
 
                                 </tbody>
@@ -69,11 +77,11 @@ class GetDoctors extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="modal fade" id="addDoctor" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="addPatient" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Add Doctor</h5>
+                                <h5 className="modal-title" id="exampleModalLabel">Add Patient</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -88,12 +96,6 @@ class GetDoctors extends React.Component {
                                             <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="name" ref="name" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="gender" class="col-sm-3 col-form-label">Gender</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="gender" ref="gender" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
@@ -149,4 +151,4 @@ class GetDoctors extends React.Component {
     }
 }
 
-export default GetDoctors
+export default GetPatients
