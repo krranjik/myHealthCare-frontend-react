@@ -22,7 +22,7 @@ class GetDoctors extends React.Component {
             return (
                 <tr>
                     <td className="py-1">
-                        <img src={'http://localhost:4444/public/'+val.image} alt="image" style={{'height': '100px', 'width': '100px'}}/>
+                        <img src={'http://localhost:4444/public/' + val.image} alt="image" style={{ 'height': '100px', 'width': '100px' }} />
                     </td>
                     <td>{val.name}</td>
                     <td>{val.department}</td>
@@ -94,40 +94,57 @@ class GetDoctors extends React.Component {
                                 <div className={this.state.message == "" ? "alert alert-success d-none" : "alert alert-success"}>{this.state.message}</div>
                                 <form className="form-horizontal add-admin" >
                                     <span id="err"></span>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Name</label>
-                                        <input type="text" className="form-control" ref='name' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Department</label>
-                                        <input type="text" className="form-control" ref='department' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Phone</label>
-                                        <input type="text" className="form-control" ref='phone' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Description</label>
-                                        <input type="text" className="form-control" ref='description' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Location</label>
-                                        <input type="text" className="form-control" ref='location' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fname">Rating</label>
-                                        <input type="text" className="form-control" ref='rating' />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="image">Image</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" accept='*' class="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                    <div className="forms-sample">
+
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="name" ref="name" />
                                             </div>
                                         </div>
+                                        <div className="form-group row">
+                                            <label for="department" class="col-sm-3 col-form-label">Department</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="department" ref="department" />
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="phone" ref="phone" />
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label for="description" class="col-sm-3 col-form-label">Description</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="description" ref="description" />
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label for="location" class="col-sm-3 col-form-label">Location</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="location" ref="location" />
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label for="rating" class="col-sm-3 col-form-label">Rating</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="rating" ref="rating" />
+                                            </div>
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="image">Image</label>
+                                            <div class="input-group col-xs-12">
+                                                <div class="custom-file">
+                                                    <input type="file" accept='*' class="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" id="addContentbutton" class="btn btn-dark mr-2">Submit</button>
+                                        <button class="btn btn-light">Cancel</button>
                                     </div>
-                                    <button type="submit" id="addContentbutton" className="btn btn-dark">Submit</button>
                                 </form>
+
                             </div>
 
                         </div>
