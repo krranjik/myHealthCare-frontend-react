@@ -5,7 +5,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import Dashboard from './containers/dashboard'
 import LoginPage from './components/admin/loginpage';
-import GetDoctors from './components/doctors/getdoctors'
+import GetDoctors from './containers/doctor'
 
 class Router extends Component {
     render() {
