@@ -35,6 +35,8 @@ class GetPatients extends React.Component {
                     <td>{val.weight}</td>
                     <td>{val.height}</td>
                     <td>{val.phone}</td>
+                    <td><a class="btn btn-danger" href="/delete/{{this._id}}"><span class="mdi mdi-delete" aria-hidden="true"></span></a>
+                        <a class="btn btn-primary" href="/update/{{this._id}}"><span class="mdi mdi-lead-pencil" aria-hidden="true"></span></a></td>
                 </tr>
             )
         })
@@ -44,13 +46,13 @@ class GetPatients extends React.Component {
                     <div className="card-body">
                         <h1 className="card-title float-left">List of Patients</h1>
 
-                        <button type="button" class="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addPatient'>
-                            <i class="mdi mdi-account-plus btn-icon-prepend"></i>
+                        <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addPatient'>
+                            <i className="mdi mdi-account-plus btn-icon-prepend"></i>
                             Add Patient
                         </button>
 
                         <div className="table-responsive">
-                            <table className="table table-striped table-hover text-dark">
+                            <table className="table table-striped table-bordered text-center table-hover text-dark">
                                 <thead>
                                     <tr>
                                         <th><b>Image</b></th>
@@ -65,6 +67,7 @@ class GetPatients extends React.Component {
                                         <th><b>Weight</b></th>
                                         <th><b>Height</b></th>
                                         <th><b>Phone</b></th>
+                                        <th><b>Action</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,52 +95,52 @@ class GetPatients extends React.Component {
                                     <span id="err"></span>
                                     <div className="forms-sample text-dark">
 
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="name" ref="name" />
+                                        <div className="form-group row">
+                                            <label for="name" className="col-sm-3 col-form-label">Name</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="name" ref="name" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <label for="department" class="col-sm-3 col-form-label">Department</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="department" ref="department" />
+                                            <label for="department" className="col-sm-3 col-form-label">Department</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="department" ref="department" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <label for="phone" class="col-sm-3 col-form-label">Phone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="phone" ref="phone" />
+                                            <label for="phone" className="col-sm-3 col-form-label">Phone</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="phone" ref="phone" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <label for="description" class="col-sm-3 col-form-label">Description</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="description" ref="description" />
+                                            <label for="description" className="col-sm-3 col-form-label">Description</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="description" ref="description" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <label for="location" class="col-sm-3 col-form-label">Location</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="location" ref="location" />
+                                            <label for="location" className="col-sm-3 col-form-label">Location</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="location" ref="location" />
                                             </div>
                                         </div>
                                         <div className="form-group row">
-                                            <label for="rating" class="col-sm-3 col-form-label">Rating</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="rating" ref="rating" />
+                                            <label for="rating" className="col-sm-3 col-form-label">Rating</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" className="form-control" id="rating" ref="rating" />
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="image">Image</label>
-                                            <div class="input-group col-xs-12">
-                                                <div class="custom-file">
-                                                    <input type="file" accept='*' class="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                            <div className="input-group col-xs-12">
+                                                <div className="custom-file">
+                                                    <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" id="addContentbutton" class="btn btn-dark mr-2">Submit</button>
-                                        <button class="btn btn-light">Cancel</button>
+                                        <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
+                                        <button className="btn btn-light">Cancel</button>
                                     </div>
                                 </form>
 
