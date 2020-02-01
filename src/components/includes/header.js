@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
@@ -175,7 +176,7 @@ class Header extends React.Component {
                         <div className="container">
                             <ul className="nav page-navigation">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="index.html">
+                                    <a className="nav-link" href="#">
                                         <i className="mdi mdi-view-dashboard menu-icon"></i>
                                         <span className="menu-title">Dashboard</span>
                                     </a>
@@ -188,28 +189,28 @@ class Header extends React.Component {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="pages/forms/basic_elements.html" className="nav-link">
+                                    <a href="#" className="nav-link">
                                         <i className="mdi mdi-account-star menu-icon"></i>
                                         <span className="menu-title">Doctors</span>
                                         <i className="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="pages/charts/chartjs.html" className="nav-link">
+                                    <a href="#" className="nav-link">
                                         <i className="mdi mdi-file-document menu-icon"></i>
                                         <span className="menu-title">Medical Reports</span>
                                         <i className="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="pages/tables/basic-table.html" className="nav-link">
+                                    <a href="#" className="nav-link">
                                         <i className="mdi mdi-clipboard-text menu-icon"></i>
                                         <span className="menu-title">Prescriptions</span>
                                         <i className="menu-arrow"></i>
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="pages/icons/mdi.html" className="nav-link">
+                                    <a href="#" className="nav-link">
                                         <i className="mdi mdi-calendar-plus menu-icon"></i>
                                         <span className="menu-title">Appointment</span>
                                         <i className="menu-arrow"></i>
