@@ -14,9 +14,9 @@ class Router extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Dashboard} />
-                    <Route exact path="/adminlogin" component={LoginPage} />
-                    <Route exact path="/doctor/alldoctors" component={GetDoctors}/>
-                    <Route exact path="/patient/allpatients" component={GetPatients} />
+                    <Route path="/adminlogin" component={LoginPage} />
+                    <Route path="/doctor/alldoctors" component={GetDoctors}/>
+                    <Route path="/patient/allpatients" component={GetPatients} />
                 </Switch>
             </BrowserRouter>
         )

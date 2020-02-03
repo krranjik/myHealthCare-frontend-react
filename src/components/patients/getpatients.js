@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 class GetPatients extends React.Component {
     constructor(props) {
@@ -14,6 +15,56 @@ class GetPatients extends React.Component {
                 patientData: nextprops.patientData
             })
         }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        var name = this.refs.patientName.value
+        var username = this.refs.username.value
+        var password = this.refs.password.value
+        var email = this.refs.email.value
+        var address = this.refs.patientAddress.value
+        var dob = this.refs.dob.value
+        var gender = this.refs.patientGender.value
+        var bloodgroup = this.refs.bloodgroup.value
+        var weight = this.refs.weight.value
+        var height = this.refs.height.value
+        var phone = this.refs.patientPhone.value
+        var image = this.refs.image.files[0]
+
+        var data = new FormData()
+        data.append('name', name)
+        data.append('username', username)
+        data.append('password', password)
+        data.append('email', email)
+        data.append('address', address)
+        data.append('dob', dob)
+        data.append('gender', gender)
+        data.append('bloodgroup', bloodgroup)
+        data.append('weight', weight)
+        data.append('height', height)
+        data.append('phone', phone)
+        data.append('image', image)
+
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+                'Accept': 'multipart/form-data'
+            }
+        }
+
+        Axios.post('http://localhost:4444/registerpatient', data, config)
+            .then((res) => {
+                if (res.data.status === 200) {
+                    var dataarray = this.state.patientData.concat(res.data)
+                    this.setState({
+                        patientData: dataarray,
+                        message: res.data.message
+                    })
+                    window.location.reload();
+                }
+            })
     }
 
     render() {
@@ -81,7 +132,7 @@ class GetPatients extends React.Component {
                     </div>
                 </div>
                 <div className="modal fade" id="addPatient" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
+                    <div className="modal-dialog modal-xl" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">Add Patient</h5>
@@ -91,65 +142,140 @@ class GetPatients extends React.Component {
                             </div>
                             <div className="modal-body">
                                 <div className={this.state.message == "" ? "alert alert-success d-none" : "alert alert-success"}>{this.state.message}</div>
-                                <form className="form-horizontal add-admin" >
+                                <form className="form-horizontal add-admin" onSubmit={this.handleSubmit.bind(this)} >
                                     <span id="err"></span>
                                     <div className="forms-sample text-dark">
+                                        <div class="col-12 grid-margin">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Patient Name</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="patientName" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Username</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="username" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Password</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="password" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Email</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="email" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Address</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="patientAddress" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Date of Birth</label>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" class="form-control" ref="dob" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Gender</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="patientGender" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Blood Group</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="bloodgroup" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Weight</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="weight" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Height</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="height" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">Phone</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" ref="patientPhone" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="image">Image</label>
+                                                                <div className="input-group col-xs-12">
+                                                                    <div className="custom-file">
+                                                                        <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                        <div className="form-group row">
-                                            <label for="name" className="col-sm-3 col-form-label">Name</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="name" ref="name" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="department" className="col-sm-3 col-form-label">Department</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="department" ref="department" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="phone" className="col-sm-3 col-form-label">Phone</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="phone" ref="phone" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="description" className="col-sm-3 col-form-label">Description</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="description" ref="description" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="location" className="col-sm-3 col-form-label">Location</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="location" ref="location" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="rating" className="col-sm-3 col-form-label">Rating</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="rating" ref="rating" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="image">Image</label>
-                                            <div className="input-group col-xs-12">
-                                                <div className="custom-file">
-                                                    <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                                            <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
+                                                            <button className="btn btn-light">Cancel</button>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
-                                        <button className="btn btn-light">Cancel</button>
                                     </div>
                                 </form>
-
                             </div>
 
+
                         </div>
+
                     </div>
                 </div>
-            </div>
+            </div >
+
         )
     }
 }

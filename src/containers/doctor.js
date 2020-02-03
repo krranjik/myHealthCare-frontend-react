@@ -13,18 +13,17 @@ class Doctor extends Component {
     }
 
     componentDidMount = () => {
-        // var user_token = sessionStorage.getItem('user_token')
-        // var config = {
-        //     headers: {
-        //         'Authorization': user_token
-        //     }
-        // }
-        //Axios.get('http://localhost:4444/getalldoctors', config)
-        Axios.get('http://localhost:4444/getalldoctors')
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token
+            }
+        }
+        Axios.get('http://localhost:4444/getalldoctors', config)
             .then((res) => {
-                    this.setState({
-                        doctorData: res.data
-                    })
+                this.setState({
+                    doctorData: res.data
+                })
             }).catch((err) => {
                 this.setState({
                     message: err.message
@@ -36,7 +35,7 @@ class Doctor extends Component {
         return (
             <div>
                 <Header />
-                <GetDoctors doctorData={this.state.doctorData}/>
+                <GetDoctors doctorData={this.state.doctorData} />
                 <Footer />
             </div>
         )
