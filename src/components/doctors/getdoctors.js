@@ -1,12 +1,13 @@
 import React from 'react';
 import Axios from 'axios';
+import DoctorUpdate from './doctorUpdate';
 
 class GetDoctors extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             doctorData: this.props.doctorData,
-            doctorDataupdate:''
+            message: ""
         }
     }
 
@@ -50,22 +51,33 @@ class GetDoctors extends React.Component {
 
         Axios.post('http://localhost:4444/registerdoctor', data, config)
             .then((res) => {
+                window.location.reload();
                 if (res.data.status === 200) {
                     var dataarray = this.state.doctorData.concat(res.data)
                     this.setState({
                         doctorData: dataarray,
                         message: res.data.message
                     })
-                    window.location.reload();
+
                 }
             })
     }
     //add doctor function ends
-    onopen(id){
-        Axios.get('http://localhost:4444/registerdoctor/getdoctorbyid'+id).then((res)=>{
-            this.setState({ doctorDataupdate:res.data})
-        })
+
+    handleDelete = (val, index) => {
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+            }
+        }
+
+        Axios.delete('http://localhost:4444/deletedoctor/' + val, config)
+            .then(val => {
+                window.location.reload()
+            })
     }
+
     //add doctor
 
     render() {
@@ -83,8 +95,11 @@ class GetDoctors extends React.Component {
                     <td>{val.location}</td>
                     <td>{val.description}</td>
                     <td>{val.rating}</td>
-                    <td><a class="btn btn-danger" href="/delete/{{this._id}}"><span class="mdi mdi-delete" aria-hidden="true"></span></a>
-                        <a class="btn btn-primary" onClick={this.onopen(val._id)} data-toggle='modal' data-target='#updateDoctor'><span class="mdi mdi-lead-pencil" aria-hidden="true"></span></a></td>
+                    <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
+                        <DoctorUpdate
+                            updateDoctor={val}
+                        />
+                    </td>
                 </tr>
             )
         })
@@ -118,7 +133,6 @@ class GetDoctors extends React.Component {
                                     {
                                         doctorData
                                     }
-
                                 </tbody>
                             </table>
                         </div>
@@ -138,7 +152,6 @@ class GetDoctors extends React.Component {
                                 <form className="form-horizontal add-admin" onSubmit={this.handleSubmit.bind(this)}>
                                     <span id="err"></span>
                                     <div className="forms-sample text-dark">
-
                                         <div className="form-group row">
                                             <label for="name" className="col-sm-3 col-form-label">Name</label>
                                             <div className="col-sm-9">
@@ -193,90 +206,10 @@ class GetDoctors extends React.Component {
                                         <button className="btn btn-light">Cancel</button>
                                     </div>
                                 </form>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
-                <div className="modal fade" id="updateDoctor" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Update Doctor</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <div className={this.state.message == "" ? "alert alert-success d-none" : "alert alert-success"}>{this.state.message}</div>
-                                <form className="form-horizontal add-admin">
-                                    <span id="err"></span>
-                                    <div className="forms-sample text-dark">
-
-                                        <div className="form-group row">
-                                            <label for="name" className="col-sm-3 col-form-label">Name</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" value={this.state.doctorDataupdate.name} id="name" ref="updateDoctorName" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="gender" className="col-sm-3 col-form-label">Gender</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="gender" ref="updateDoctorGender" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="department" className="col-sm-3 col-form-label">Department</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="department" ref="updatedepartment" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="phone" className="col-sm-3 col-form-label">Phone</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="phone" ref="updateDoctorPhone" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="description" className="col-sm-3 col-form-label">Description</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="description" ref="updatedescription" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="location" className="col-sm-3 col-form-label">Location</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="location" ref="updateDoctorLocation" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label for="rating" className="col-sm-3 col-form-label">Rating</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" className="form-control" id="rating" ref="updaterating" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="image">Image</label>
-                                            <div className="input-group col-xs-12">
-                                                <div className="custom-file">
-                                                    <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
-                                        <button className="btn btn-light">Cancel</button>
-                                    </div>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         )
     }
