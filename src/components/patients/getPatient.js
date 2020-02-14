@@ -1,7 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
+import PatientUpdate from './patientUpdate';
 
-class PatientComp extends React.Component {
+class GetPatient extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -102,7 +103,10 @@ class PatientComp extends React.Component {
                     <td>{val.height}</td>
                     <td>{val.phone}</td>
                     <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
-                        <button class="btn btn-small btn-primary"><i class="mdi mdi-lead-pencil" aria-hidden="true"></i></button></td>
+                        <PatientUpdate
+                            updatePatient={val}
+                        />
+                    </td>
                 </tr>
             )
         })
@@ -286,4 +290,4 @@ class PatientComp extends React.Component {
     }
 }
 
-export default PatientComp
+export default GetPatient
