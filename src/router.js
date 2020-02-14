@@ -7,6 +7,7 @@ import Dashboard from './containers/dashboard'
 import LoginPage from './components/admin/loginpage';
 import GetDoctors from './containers/doctor'
 import GetPatients from './containers/patient'
+import GetAppointment from './containers/appointment'
 
 class Router extends Component {
     render() {
@@ -17,6 +18,7 @@ class Router extends Component {
                     <Route path="/adminlogin" component={LoginPage} />
                     <Route path="/doctor/alldoctors" component={GetDoctors}/>
                     <Route path="/patient/allpatients" component={GetPatients} />
+                    <Route path="/appointment/allappointment" component={GetAppointment} />
                 </Switch>
             </BrowserRouter>
         )
