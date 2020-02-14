@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class LoginPage extends Component {
     constructor() {
@@ -47,7 +47,7 @@ class LoginPage extends Component {
                                 <div className="col-lg-4 mx-auto">
                                     <div className="auth-form-light text-left py-5 px-4 px-sm-5">
                                         <div className="brand-logo">
-                                            <img src="images/logo.svg" alt="logo" />
+                                            <img src={require("../../assets/images/appLogo.png")} alt="logo" />
                                         </div>
                                         <h4>Hello! let's get started</h4>
                                         <h6 className="font-weight-light">Sign in to continue.</h6>
@@ -55,31 +55,18 @@ class LoginPage extends Component {
                                             <div className="form-group">
                                                 <input type="email" className="form-control form-control-lg" id="exampleInputEmail1"
                                                     placeholder="Username" value={this.state.username}
-                                                    onChange={(event) => this.setState({ username: event.target.value })}/>
+                                                    onChange={(event) => this.setState({ username: event.target.value })} />
                                             </div>
                                             <div className="form-group">
                                                 <input type="password" className="form-control form-control-lg" id="exampleInputPassword1"
                                                     placeholder="Password" value={this.state.password}
-                                                    onChange={(event) => this.setState({ password: event.target.value })}/>
+                                                    onChange={(event) => this.setState({ password: event.target.value })} />
                                             </div>
                                             <div className="mt-3">
                                                 <button className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                                                     onClick={this.login}>SIGN IN</button>
                                             </div>
-                                            <div className="my-2 d-flex justify-content-between align-items-center">
-                                                <div className="form-check">
-                                                    <label className="form-check-label text-muted">
-                                                        <input type="checkbox" className="form-check-input" />
-                                                        Keep me signed in
-                        </label>
-                                                </div>
-                                                <a href="#" className="auth-link text-black">Forgot password?</a>
-                                            </div>
-                                            <div className="mb-2">
-                                                <button type="button" className="btn btn-block btn-facebook auth-form-btn">
-                                                    <i className="mdi mdi-facebook mr-2"></i>Connect using facebook
-                      </button>
-                                            </div>
+
                                             <div className="text-center mt-4 font-weight-light">
                                                 Don't have an account? <a href="register.html" className="text-primary">Create</a>
                                             </div>

@@ -15,21 +15,17 @@ class Header extends React.Component {
                                     </li>
                                 </ul>
                                 <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                                    <a className="navbar-brand brand-logo" href="#"><img src="images/appLogo.png" alt="logo" /></a>
-                                    <a className="navbar-brand brand-logo-mini" href="#"><img src="images/appLogo.png" alt="logo" /></a>
+                                    <a className="navbar-brand brand-logo" href="#"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
+                                    <a className="navbar-brand brand-logo-mini" href="#"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
                                 </div>
                                 <ul className="navbar-nav navbar-nav-right">
                                     <li className="nav-item nav-profile dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                                             <span className="nav-profile-name">Welcome, Admin</span>
                                             <span className="online-status"></span>
-                                            <img src="images/kritik.jpg" alt="profile" />
+                                            <img src={require("../../assets/images/kritik.jpg")} alt="profile" />
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                                            <a className="dropdown-item">
-                                                <i className="mdi mdi-settings text-primary"></i>
-                                                Settings
-                      </a>
                                             <a className="dropdown-item">
                                                 <i className="mdi mdi-logout text-primary"></i>
                                                 Logout
@@ -47,45 +43,45 @@ class Header extends React.Component {
                         <div className="container">
                             <ul className="nav page-navigation">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                        <i className="mdi mdi-view-dashboard menu-icon"></i>
-                                        <span className="menu-title">Dashboard</span>
-                                    </a>
+                                    <Link to="/" className="nav-link">
+                                            <i className="mdi mdi-view-dashboard menu-icon"></i>
+                                            <span className="menu-title">Dashboard</span>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link">
-                                        <i className="mdi mdi-account menu-icon"></i>
-                                        <span className="menu-title">Patients</span>
-                                        <i className="menu-arrow"></i>
-                                    </a>
+                                    <Link to="/patient/allpatients" className="nav-link">
+                                            <i className="mdi mdi-account menu-icon"></i>
+                                            <span className="menu-title">Patients</span>
+                                            <i className="menu-arrow"></i>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link">
-                                        <i className="mdi mdi-account-star menu-icon"></i>
-                                        <span className="menu-title">Doctors</span>
-                                        <i className="menu-arrow"></i>
-                                    </a>
+                                    <Link to="/doctor/alldoctors" className="nav-link">
+                                            <i className="mdi mdi-account-star menu-icon"></i>
+                                            <span className="menu-title">Doctors</span>
+                                            <i className="menu-arrow"></i>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link">
-                                        <i className="mdi mdi-file-document menu-icon"></i>
-                                        <span className="menu-title">Medical Reports</span>
-                                        <i className="menu-arrow"></i>
-                                    </a>
+                                    <Link to="/report/allreports" className="nav-link">
+                                            <i className="mdi mdi-file-document menu-icon"></i>
+                                            <span className="menu-title">Medical Reports</span>
+                                            <i className="menu-arrow"></i>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link">
-                                        <i className="mdi mdi-clipboard-text menu-icon"></i>
-                                        <span className="menu-title">Prescriptions</span>
-                                        <i className="menu-arrow"></i>
-                                    </a>
+                                    <Link to="/prescription/allprescriptions" className="nav-link">
+                                            <i className="mdi mdi-clipboard-text menu-icon"></i>
+                                            <span className="menu-title">Prescriptions</span>
+                                            <i className="menu-arrow"></i>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link">
-                                        <i className="mdi mdi-calendar-plus menu-icon"></i>
-                                        <span className="menu-title">Appointment</span>
-                                        <i className="menu-arrow"></i>
-                                    </a>
+                                    <Link to="/appointment/allappointments" className="nav-link">
+                                            <i className="mdi mdi-calendar-plus menu-icon"></i>
+                                            <span className="menu-title">Appointment</span>
+                                            <i className="menu-arrow"></i>
+                                    </Link>
                                 </li>
 
                             </ul>

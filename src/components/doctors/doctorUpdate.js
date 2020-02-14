@@ -76,11 +76,64 @@ export class DoctorUpdate extends Component {
                 </button>
                 <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Update Patient</Modal.Title>
+                        <Modal.Title>Update Doctor</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form onSubmit={this.handleSubmit.bind(this)}>
-
+                            <div className="forms-sample text-dark">
+                                <div className="form-group row">
+                                    <label for="name" className="col-sm-3 col-form-label">Name</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.name} onChange={(event) => this.setState({ name: event.target.value })} ref="doctorName" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="gender" className="col-sm-3 col-form-label">Gender</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.gender} onChange={(event) => this.setState({ gender: event.target.value })} ref="doctorGender" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="department" className="col-sm-3 col-form-label">Department</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.department} onChange={(event) => this.setState({ department: event.target.value })} ref="department" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="phone" className="col-sm-3 col-form-label">Phone</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.phone} onChange={(event) => this.setState({ phone: event.target.value })} ref="doctorPhone" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="description" className="col-sm-3 col-form-label">Description</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} ref="description" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="location" className="col-sm-3 col-form-label">Location</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.location} onChange={(event) => this.setState({ location: event.target.value })} ref="doctorLocation" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label for="rating" className="col-sm-3 col-form-label">Rating</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={this.state.rating} onChange={(event) => this.setState({ rating: event.target.value })} ref="rating" />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="image">Image</label>
+                                    <div className="input-group col-xs-12">
+                                        <div className="custom-file">
+                                            <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
+                                <button className="btn btn-light">Cancel</button>
+                            </div>
                         </form>
                     </Modal.Body>
                 </Modal>
