@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetPatients from '../components/patients/getpatients.js'
+import PatientComp from '../components/patients/patientComp'
 import Axios from 'axios'
 
 class Patient extends Component {
@@ -36,7 +36,7 @@ class Patient extends Component {
         return (
             <div>
                 <Header />
-                <GetPatients patientData={this.state.patientData} />
+                <PatientComp patientData={this.state.patientData} />
                 <Footer />
             </div>
         )

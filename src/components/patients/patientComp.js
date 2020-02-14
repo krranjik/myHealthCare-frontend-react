@@ -1,11 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
 
-class GetPatients extends React.Component {
+class PatientComp extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             patientData: this.props.patientData,
+            message: ""
         }
     }
 
@@ -56,14 +57,28 @@ class GetPatients extends React.Component {
 
         Axios.post('http://localhost:4444/registerpatient', data, config)
             .then((res) => {
+                window.location.reload();
                 if (res.data.status === 200) {
                     var dataarray = this.state.patientData.concat(res.data)
                     this.setState({
                         patientData: dataarray,
                         message: res.data.message
                     })
-                    window.location.reload();
                 }
+            })
+    }
+
+    handleDelete = (val, index) => {
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+            }
+        }
+
+        Axios.delete('http://localhost:4444/deletepatient/' + val, config)
+            .then(val => {
+                window.location.reload()
             })
     }
 
@@ -86,8 +101,8 @@ class GetPatients extends React.Component {
                     <td>{val.weight}</td>
                     <td>{val.height}</td>
                     <td>{val.phone}</td>
-                    <td><a class="btn btn-danger" href="/delete/{{this._id}}"><span class="mdi mdi-delete" aria-hidden="true"></span></a>
-                        <a class="btn btn-primary" href="/update/{{this._id}}"><span class="mdi mdi-lead-pencil" aria-hidden="true"></span></a></td>
+                    <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
+                        <button class="btn btn-small btn-primary"><i class="mdi mdi-lead-pencil" aria-hidden="true"></i></button></td>
                 </tr>
             )
         })
@@ -96,12 +111,10 @@ class GetPatients extends React.Component {
                 <div className="card">
                     <div className="card-body">
                         <h1 className="card-title float-left">List of Patients</h1>
-
                         <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addPatient'>
                             <i className="mdi mdi-account-plus btn-icon-prepend"></i>
                             Add Patient
                         </button>
-
                         <div className="table-responsive">
                             <table className="table table-striped table-bordered text-center table-hover text-dark">
                                 <thead>
@@ -125,7 +138,6 @@ class GetPatients extends React.Component {
                                     {
                                         patientData
                                     }
-
                                 </tbody>
                             </table>
                         </div>
@@ -196,7 +208,7 @@ class GetPatients extends React.Component {
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Date of Birth</label>
-                                                                <div class="col-sm-4">
+                                                                <div class="col-sm-9">
                                                                     <input type="text" class="form-control" ref="dob" />
                                                                 </div>
                                                             </div>
@@ -256,28 +268,22 @@ class GetPatients extends React.Component {
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
                                                             <button className="btn btn-light">Cancel</button>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div >
-
         )
     }
 }
 
-export default GetPatients
+export default PatientComp

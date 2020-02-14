@@ -6,7 +6,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Dashboard from './containers/dashboard'
 import LoginPage from './components/admin/loginpage';
 import GetDoctors from './containers/doctor'
-import GetPatients from './containers/patient'
+import PatientComp from './containers/patient'
 import GetAppointment from './containers/appointment'
 
 class Router extends Component {
@@ -16,8 +16,8 @@ class Router extends Component {
                 <Switch>
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/adminlogin" component={LoginPage} />
-                    <Route path="/doctor/alldoctors" component={GetDoctors}/>
-                    <Route path="/patient/allpatients" component={GetPatients} />
+                    <Route path="/doctor/alldoctors" component={GetDoctors} />
+                    <Route path="/patient/allpatients" component={PatientComp} />
                     <Route path="/appointment/allappointment" component={GetAppointment} />
                 </Switch>
             </BrowserRouter>
