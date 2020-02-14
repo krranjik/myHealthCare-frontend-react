@@ -2,14 +2,99 @@ import React from 'react';
 import Axios from 'axios';
 
 class GetAppointment extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            appointmentData: this.props.appointmentData,
+            message: ""
+        }
+    }
+
+    componentWillReceiveProps(nextprops) {
+        if (nextprops.appointmentData !== this.state.appointmentData) {
+            this.setState({
+                appointmentData: nextprops.appointmentData
+            })
+        }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        var patient_name = this.refs.patientName.value
+        var doctor_name = this.refs.doctorName.value
+        var appoint_date = this.refs.appointDate.value
+        var appoint_time = this.refs.appointTime.value
+        var status = this.refs.status.value
+
+        var data = new FormData()
+        data.append('patient_id', patient_name)
+        data.append('doctor_id', doctor_name)
+        data.append('appoint_date', appoint_date)
+        data.append('appoint_time', appoint_time)
+        data.append('status', status)
+
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+                'Accept': 'multipart/form-data'
+            }
+        }
+
+        Axios.post('http://localhost:4444/addappointment', data, config)
+            .then((res) => {
+                window.location.reload();
+                if (res.data.status === 200) {
+                    var dataarray = this.state.appointmentData.concat(res.data)
+                    this.setState({
+                        appointmentData: dataarray,
+                        message: res.data.message
+                    })
+
+                }
+            })
+    }
+
+    handleDelete = (val, index) => {
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+            }
+        }
+
+        Axios.delete('http://localhost:4444/deleteappointment/' + val, config)
+            .then(val => {
+                window.location.reload()
+            })
+    }
+
     render() {
+        var appointmentData = this.state.appointmentData
+        appointmentData = appointmentData.map((val,index)=>{
+            return(
+                <tr>
+                    <td>{val.patient_id.name}</td>
+                    <td>{val.doctor_id.name}</td>
+                    <td>{val.appoint_date}</td>
+                    <td>{val.appoint_time}</td>
+                    <td>{val.status}</td>
+                    <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
+                        {/* <AppointmentUpdate
+                            updateAppointment={val}
+                        /> */}
+                    </td>
+                </tr>
+            )
+        })
         return (
             <div className="col-lg-12 grid-margin stretch-card" >
                 <div className="card">
                     <div className="card-body">
-                        <h1 className="card-title">List of Appointments</h1>
+                        <h1 className="card-title float-left">List of Appointments</h1>
                         <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addAppointment'>
-                            <i className="mdi mdi-account-plus btn-icon-prepend"></i>
+                            <i className="mdi mdi-plus btn-icon-prepend"></i>
                             Add Appointment
                         </button>
                         <div className="table-responsive">
@@ -24,6 +109,11 @@ class GetAppointment extends React.Component {
                                         <th><b>Action</b></th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    {
+                                        appointmentData
+                                    }
+                                </tbody>
                             </table>
                         </div>
                     </div>

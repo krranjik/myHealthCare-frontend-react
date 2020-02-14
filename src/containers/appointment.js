@@ -21,6 +21,7 @@ class Appointment extends Component {
         }
         Axios.get('http://localhost:4444/getallappointment', config)
             .then((res) => {
+                console.log(res.data)
                 this.setState({
                     appointmentData: res.data
                 })
