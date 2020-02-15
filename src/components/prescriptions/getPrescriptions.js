@@ -71,9 +71,9 @@ export class GetPrescriptions extends Component {
             .then((res) => {
                 window.location.reload();
                 if (res.data.status === 200) {
-                    var dataarray = this.state.appointmentData.concat(res.data)
+                    var dataarray = this.state.prescriptionData.concat(res.data)
                     this.setState({
-                        appointmentData: dataarray,
+                        prescriptionData: dataarray,
                         message: res.data.message
                     })
 

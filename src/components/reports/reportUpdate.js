@@ -2,20 +2,16 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import { Modal } from 'react-bootstrap'
 
-export class PrescriptionUpdate extends Component {
+export class ReportUpdate extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.updatePrescription._id,
-            patient_name: this.props.updatePrescription.patient_name,
-            doctor_name: this.props.updatePrescription.doctor_name,
-            start_date: this.props.updatePrescription.start_date,
-            end_date: this.props.updatePrescription.end_date,
-            medicine_name: this.props.updatePrescription.medicine_name,
-            morning_time: this.props.updatePrescription.morning_time,
-            day_time: this.props.updatePrescription.day_time,
-            night_time:this.props.updatePrescription.night_time,
+            id: this.props.updateReport._id,
+            patient_name: this.props.updateReport.patient_name,
+            doctor_name: this.props.updateReport.doctor_name,
+            report_name: this.props.updateReport.report_name,
+            report_date: this.props.updateReport.report_date,
             setShow: false,
             patients: [],
             doctors: [],
@@ -43,22 +39,16 @@ export class PrescriptionUpdate extends Component {
         event.preventDefault()
         var patient_name = this.state.patient_name
         var doctor_name = this.state.doctor_name
-        var start_date = this.state.start_date
-        var end_date = this.state.end_date
-        var medicine_name = this.state.medicine_name
-        var morning_time = this.state.morning_time
-        var day_time = this.state.day_time
-        var night_time = this.state.night_time
+        var report_name = this.state.report_name
+        var report_date = this.state.report_date
+        var image = this.refs.image.files[0]
 
         var data = new FormData()
         data.append('patient_id', patient_name)
         data.append('doctor_id', doctor_name)
-        data.append('start_date', start_date)
-        data.append('end_date', end_date)
-        data.append('medicine_name', medicine_name)
-        data.append('morning_time', morning_time)
-        data.append('day_time', day_time)
-        data.append('night_time', night_time)
+        data.append('report_name', report_name)
+        data.append('report_date', report_date)
+        data.append('image', image)
 
         var user_token = sessionStorage.getItem('user_token')
         var config = {
@@ -68,7 +58,7 @@ export class PrescriptionUpdate extends Component {
             }
         }
 
-        Axios.put('http://localhost:4444/updateprescription/' + this.state.id, data, config)
+        Axios.put('http://localhost:4444/updateReport/' + this.state.id, data, config)
             .then((res) => {
                 window.location.reload();
             })
@@ -109,7 +99,7 @@ export class PrescriptionUpdate extends Component {
                 </button>
                 <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Update Prescription</Modal.Title>
+                        <Modal.Title>Update Report</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -120,7 +110,7 @@ export class PrescriptionUpdate extends Component {
                                         <select className="form-control form-control-lg">
                                             {patientsData}
                                         </select>
-                                        </div>
+                                    </div>
                                 </div>
                                 <div className="form-group row">
                                     <label for="gender" className="col-sm-3 col-form-label">Doctor Name</label>
@@ -130,39 +120,23 @@ export class PrescriptionUpdate extends Component {
                                         </select>  </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label for="department" className="col-sm-3 col-form-label">Start Date</label>
+                                    <label for="department" className="col-sm-3 col-form-label">Report Name</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.start_date} onChange={(event) => this.setState({ start_date: event.target.value })} ref="startDate" />
+                                        <input type="text" className="form-control" value={this.state.report_name} onChange={(event) => this.setState({ report_name: event.target.value })} ref="startDate" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label for="phone" className="col-sm-3 col-form-label">End Date</label>
+                                    <label for="phone" className="col-sm-3 col-form-label">Report Date</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.end_date} onChange={(event) => this.setState({ end_date: event.target.value })} ref="endDate" />
+                                        <input type="text" className="form-control" value={this.state.report_date} onChange={(event) => this.setState({ report_date: event.target.value })} ref="endDate" />
                                     </div>
                                 </div>
-                                <div className="form-group row">
-                                    <label for="description" className="col-sm-3 col-form-label">Medicine Name</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.medicine_name} onChange={(event) => this.setState({ medicine_name: event.target.value })} ref="medicineName" />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label for="location" className="col-sm-3 col-form-label">Morning Time</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.morning_time} onChange={(event) => this.setState({ morning_time: event.target.value })} ref="morningTime" />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label for="rating" className="col-sm-3 col-form-label">Day Time</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.day_time} onChange={(event) => this.setState({ day_time: event.target.value })} ref="datTime" />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label for="rating" className="col-sm-3 col-form-label">Night Time</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.night_time} onChange={(event) => this.setState({ night_time: event.target.value })} ref="nightTime" />
+                                <div className="form-group">
+                                    <label htmlFor="image">Image</label>
+                                    <div className="input-group col-xs-12">
+                                        <div className="custom-file">
+                                            <input type="file" accept='*' className="form-control-file" id="exampleFormControlFile1" ref='image' />
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
@@ -177,4 +151,4 @@ export class PrescriptionUpdate extends Component {
     }
 }
 
-export default PrescriptionUpdate
+export default ReportUpdate

@@ -8,7 +8,8 @@ import LoginPage from './components/admin/loginPage'
 import GetDoctors from './containers/doctor'
 import GetPatients from './containers/patient'
 import GetAppointments from './containers/appointment'
-import GetPrescriptions from './containers/prescription';
+import GetPrescriptions from './containers/prescription'
+import GetReports from './containers/report'
 
 class Router extends Component {
     isLoggedIn() {
@@ -31,6 +32,7 @@ class Router extends Component {
                     <Route path="/patient/all-patients" component={GetPatients} />
                     <Route path="/appointment/all-appointments" component={GetAppointments} />
                     <Route path="/prescription/all-prescriptions" component={GetPrescriptions} />
+                    <Route path="/report/all-reports" component={GetReports} />
                     >
                 </Switch>
             </BrowserRouter>
