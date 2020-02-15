@@ -13,13 +13,7 @@ class Patient extends Component {
     }
 
     componentDidMount = () => {
-        // var user_token = sessionStorage.getItem('user_token')
-        // var config = {
-        //     headers: {
-        //         'Authorization': user_token
-        //     }
-        // }
-        //Axios.get('http://localhost:4444/getalldoctors', config)
+        
         Axios.get('http://localhost:4444/getallpatients')
             .then((res) => {
                 this.setState({

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetDoctors from '../components/doctors/getdoctors.js'
+import GetDoctors from '../components/doctors/getDoctors.js'
 import Axios from 'axios'
 
 class Doctor extends Component {

@@ -4,12 +4,10 @@ import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 //Importing Components
 
 import Dashboard from './containers/dashboard'
-import LoginPage from './components/admin/loginpage';
+import LoginPage from './components/admin/loginPage';
 import GetDoctors from './containers/doctor'
 import GetPatients from './containers/patient'
 import GetAppointment from './containers/appointment'
-import GetPrescription from './containers/prescription'
-import GetReport from './containers/report'
 
 class Router extends Component {
     isLoggedIn() {
@@ -25,14 +23,12 @@ class Router extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" render={() => (
-                        this.isLoggedIn() == false ? (<Redirect to="/adminlogin" />) : (<Dashboard />)
+                        this.isLoggedIn() == false ? (<Redirect to="/admin/login" />) : (<Dashboard />)
                     )}/>
-                    <Route path="/adminlogin" component={LoginPage} />
-                    <Route path="/doctor/alldoctors" component={GetDoctors} />
-                    <Route path="/patient/allpatients" component={GetPatients} />
-                    <Route path="/appointment/allappointments" component={GetAppointment} />
-                    <Route path="/prescription/allprescriptions" component={GetPrescription} />
-                    <Route path="/report/allreports" component={GetReport} />
+                    <Route path="/admin/login" component={LoginPage} />
+                    <Route path="/doctor/all-doctors" component={GetDoctors} />
+                    <Route path="/patient/all-patients" component={GetPatients} />
+                    <Route path="/appointment/all-appointments" component={GetAppointment} />>
                 </Switch>
             </BrowserRouter>
         )

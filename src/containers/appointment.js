@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetAppointment from '../components/appointment/getappointment.js'
+import GetAppointment from '../components/appointment/getAppointments.js/index.js'
 import Axios from 'axios'
 
 class Appointment extends Component {
