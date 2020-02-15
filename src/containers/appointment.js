@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetAppointment from '../components/appointment/getAppointments.js/index.js'
+import GetAppointments from '../components/appointment/getAppointments.js'
 import Axios from 'axios'
 
 class Appointment extends Component {
@@ -36,7 +36,7 @@ class Appointment extends Component {
         return (
             <div>
                 <Header />
-                <GetAppointment appointmentData={this.state.appointmentData} />
+                <GetAppointments appointmentData={this.state.appointmentData} />
                 <Footer />
             </div>
         )

@@ -10,19 +10,16 @@ class Header extends React.Component {
             redirect: false,
         }
     }
-
     setRedirect() {
         this.setState({
             redirect: true,
         })
     }
-
     handleRedirect() {
         if (this.state.redirect) {
             return <Redirect to='/adminlogin' />
         }
     }
-
     handleSubmit(event) {
         event.preventDefault()
         Axios.get('http://localhost:4444/logout')
@@ -83,35 +80,35 @@ class Header extends React.Component {
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="/patient/allpatients" className="nav-link">
+                                        <Link to="/patient/all-patients" className="nav-link">
                                             <i className="mdi mdi-account menu-icon"></i>
                                             <span className="menu-title">Patients</span>
                                             <i className="menu-arrow"></i>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="/doctor/alldoctors" className="nav-link">
+                                        <Link to="/doctor/all-doctors" className="nav-link">
                                             <i className="mdi mdi-account-star menu-icon"></i>
                                             <span className="menu-title">Doctors</span>
                                             <i className="menu-arrow"></i>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="/report/allreports" className="nav-link">
+                                        <Link to="/report/all-reports" className="nav-link">
                                             <i className="mdi mdi-file-document menu-icon"></i>
                                             <span className="menu-title">Medical Reports</span>
                                             <i className="menu-arrow"></i>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="/prescription/allprescriptions" className="nav-link">
+                                        <Link to="/prescription/all-prescriptions" className="nav-link">
                                             <i className="mdi mdi-clipboard-text menu-icon"></i>
                                             <span className="menu-title">Prescriptions</span>
                                             <i className="menu-arrow"></i>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="/appointment/allappointments" className="nav-link">
+                                        <Link to="/appointment/all-appointments" className="nav-link">
                                             <i className="mdi mdi-calendar-plus menu-icon"></i>
                                             <span className="menu-title">Appointment</span>
                                             <i className="menu-arrow"></i>

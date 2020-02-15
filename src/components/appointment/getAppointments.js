@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-class GetAppointment extends React.Component {
+class GetAppointments extends React.Component {
 
     constructor(props) {
         super(props)
@@ -134,4 +134,4 @@ class GetAppointment extends React.Component {
     }
 }
 
-export default GetAppointment
+export default GetAppointments

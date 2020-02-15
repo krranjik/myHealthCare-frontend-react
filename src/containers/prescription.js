@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetPatients from '../components/patients/getPatients.js'
+import GetPrescriptions from '../components/prescriptions/getPrescriptions'
 import Axios from 'axios'
 
-class Patient extends Component {
+export class Prescription extends Component {
+
     constructor() {
         super()
         this.state = {
-            patientData: [],
+            prescriptionData: []
         }
     }
 
@@ -19,10 +20,11 @@ class Patient extends Component {
                 'Authorization': user_token
             }
         }
-        Axios.get('http://localhost:4444/getallpatients')
+
+        Axios.get('http://localhost:4444/getprescription', config)
             .then((res) => {
                 this.setState({
-                    patientData: res.data
+                    prescriptionData: res.data
                 })
             }).catch((err) => {
                 this.setState({
@@ -35,11 +37,11 @@ class Patient extends Component {
         return (
             <div>
                 <Header />
-                <GetPatients patientData={this.state.patientData} />
+                <GetPrescriptions prescriptionData={this.state.prescriptionData} />
                 <Footer />
             </div>
         )
     }
 }
 
-export default Patient
+export default Prescription
