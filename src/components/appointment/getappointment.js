@@ -56,6 +56,22 @@ class GetAppointment extends React.Component {
             })
     }
 
+    handleConfirm = (val, index) => {
+        var user_token = sessionStorage.getItem('user_token')
+        var config = {
+            headers: {
+                'Authorization': user_token,
+            }
+        }
+
+        var data = { status: "Confirm!" }
+
+        Axios.put('http://localhost:4444/updateappointment/' + val, data, config)
+            .then(val => {
+                window.location.reload()
+            })
+    }
+
     handleDelete = (val, index) => {
         var user_token = sessionStorage.getItem('user_token')
         var config = {
@@ -72,18 +88,16 @@ class GetAppointment extends React.Component {
 
     render() {
         var appointmentData = this.state.appointmentData
-        appointmentData = appointmentData.map((val,index)=>{
-            return(
+        appointmentData = appointmentData.map((val, index) => {
+            return (
                 <tr>
                     <td>{val.patient_id.name}</td>
                     <td>{val.doctor_id.name}</td>
                     <td>{val.appoint_date}</td>
                     <td>{val.appoint_time}</td>
-                    <td>{val.status}</td>
+                    <td>{val.status == "Confirm!" ? <label class="badge badge-success">{val.status}</label> : <label class="badge badge-danger">{val.status}</label>}</td>
                     <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
-                        {/* <AppointmentUpdate
-                            updateAppointment={val}
-                        /> */}
+                        <button class="btn btn-small btn-primary" onClick={() => this.handleConfirm(val._id, index)}><i class="mdi mdi-check" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             )
@@ -93,10 +107,6 @@ class GetAppointment extends React.Component {
                 <div className="card">
                     <div className="card-body">
                         <h1 className="card-title float-left">List of Appointments</h1>
-                        <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addAppointment'>
-                            <i className="mdi mdi-plus btn-icon-prepend"></i>
-                            Add Appointment
-                        </button>
                         <div className="table-responsive">
                             <table className="table table-striped table-bordered text-center table-hover text-dark">
                                 <thead>
