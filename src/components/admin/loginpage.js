@@ -46,7 +46,7 @@ class LoginPage extends Component {
                             <div className="row w-100 mx-0">
                                 <div className="col-lg-4 mx-auto">
                                     <div className="auth-form-light text-left py-5 px-4 px-sm-5">
-                                        <div className="brand-logo">
+                                        <div className="brand-logo text-center">
                                             <img src={require("../../assets/images/appLogo.png")} alt="logo" />
                                         </div>
                                         <h4>Hello! let's get started</h4>

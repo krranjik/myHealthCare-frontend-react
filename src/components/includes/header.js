@@ -17,17 +17,15 @@ class Header extends React.Component {
     }
     handleRedirect() {
         if (this.state.redirect) {
-            return <Redirect to='/adminlogin' />
+            return <Redirect to='/admin/login' />
         }
     }
     handleSubmit(event) {
         event.preventDefault()
-        Axios.get('http://localhost:4444/logout')
-            .then(val => {
-                sessionStorage.clear('user_token');
-                sessionStorage.clear('user_username');
-                this.setRedirect();
-            })
+        sessionStorage.clear('user_token');
+        sessionStorage.clear('user_username');
+        this.setRedirect();
+
     }
     render() {
         return (
@@ -44,8 +42,8 @@ class Header extends React.Component {
                                         </li>
                                     </ul>
                                     <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                                        <a className="navbar-brand brand-logo" href="#"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
-                                        <a className="navbar-brand brand-logo-mini" href="#"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
+                                        <a className="navbar-brand brand-logo"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
+                                        <a className="navbar-brand brand-logo-mini"><img src={require("../../assets/images/appLogo.png")} alt="logo" /></a>
                                     </div>
                                     <ul className="navbar-nav navbar-nav-right">
                                         <li className="nav-item nav-profile dropdown">

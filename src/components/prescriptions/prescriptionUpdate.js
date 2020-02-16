@@ -60,6 +60,7 @@ export class PrescriptionUpdate extends Component {
             day_time: day_time,
             night_time: night_time
         }
+        console.log(data)
 
         var user_token = sessionStorage.getItem('user_token')
         var config = {
