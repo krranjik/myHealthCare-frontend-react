@@ -66,10 +66,6 @@ class LoginPage extends Component {
                                                 <button className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                                                     onClick={this.login}>SIGN IN</button>
                                             </div>
-
-                                            <div className="text-center mt-4 font-weight-light">
-                                                Don't have an account? <a href="register.html" className="text-primary">Create</a>
-                                            </div>
                                         </form>
                                     </div>
                                 </div>

@@ -95,9 +95,11 @@ class GetAppointments extends React.Component {
                     <td>{val.doctor_id.name}</td>
                     <td>{val.appoint_date}</td>
                     <td>{val.appoint_time}</td>
-                    <td>{val.status == "Confirm!" ? <label class="badge badge-success">{val.status}</label> : <label class="badge badge-danger">{val.status}</label>}</td>
+                    <td>{val.status == "Confirm!" ? <label class="badge badge-success">{val.status}</label> : <label class="badge badge-warning">{val.status}</label>}</td>
                     <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
-                        <button class="btn btn-small btn-success" onClick={() => this.handleConfirm(val._id, index)}><i class="mdi mdi-check" aria-hidden="true"></i></button>
+                        {val.status == "Confirm!" ? null :
+                            <button class="btn btn-small btn-success" onClick={() => this.handleConfirm(val._id, index)}><i class="mdi mdi-check" aria-hidden="true"></i></button>
+                        }
                     </td>
                 </tr>
             )

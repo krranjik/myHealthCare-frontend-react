@@ -97,7 +97,7 @@ export class GetReports extends Component {
                     <td>{val.report_name}</td>
                     <td>{val.report_date}</td>
                     <td>
-                        <img src={'http://localhost:4444/public/' + val.image} alt="image" style={{ 'height': '100px', 'width': '100px' }}/>
+                        <img src={'http://localhost:4444/public/' + val.image} alt="image" style={{ 'height': '200px', 'width': '200px', borderRadius:0 }}/>
                     </td>
                     <td><button class="btn btn-small btn-danger" onClick={() => this.handleDelete(val._id, index)}><i class="mdi mdi-delete" aria-hidden="true"></i></button>
                         <ReportUpdate

@@ -49,16 +49,17 @@ export class GetPrescriptions extends Component {
         var day_time = this.refs.dayTime.value
         var night_time = this.refs.nightTime.value
 
-        var data = new FormData()
-        data.append('patient_id', patient_name)
-        data.append('doctor_id', doctor_name)
-        data.append('start_date', start_date)
-        data.append('end_date', end_date)
-        data.append('medicine_time', medicine_name)
-        data.append('morning_time', morning_time)
-        data.append('day_time', day_time)
-        data.append('night_time', night_time)
-
+        var data={
+        patient_id:patient_name,
+        doctor_id:doctor_name,
+        start_date:start_date,
+        end_date:end_date,
+        medicine_name:medicine_name,
+        morning_time:morning_time,
+        day_time:day_time,
+        night_time:night_time
+        }
+        
         var user_token = sessionStorage.getItem('user_token')
         var config = {
             headers: {
@@ -76,10 +77,8 @@ export class GetPrescriptions extends Component {
                         prescriptionData: dataarray,
                         message: res.data.message
                     })
-
                 }
             })
-
     }
 
     handleDelete = (val, index) => {

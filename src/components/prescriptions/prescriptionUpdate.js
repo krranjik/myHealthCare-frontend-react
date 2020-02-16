@@ -15,10 +15,10 @@ export class PrescriptionUpdate extends Component {
             medicine_name: this.props.updatePrescription.medicine_name,
             morning_time: this.props.updatePrescription.morning_time,
             day_time: this.props.updatePrescription.day_time,
-            night_time:this.props.updatePrescription.night_time,
-            setShow: false,
+            night_time: this.props.updatePrescription.night_time,
             patients: [],
             doctors: [],
+            setShow: false,
             show: false
         }
     }
@@ -50,15 +50,16 @@ export class PrescriptionUpdate extends Component {
         var day_time = this.state.day_time
         var night_time = this.state.night_time
 
-        var data = new FormData()
-        data.append('patient_id', patient_name)
-        data.append('doctor_id', doctor_name)
-        data.append('start_date', start_date)
-        data.append('end_date', end_date)
-        data.append('medicine_name', medicine_name)
-        data.append('morning_time', morning_time)
-        data.append('day_time', day_time)
-        data.append('night_time', night_time)
+        var data = {
+            patient_id: patient_name,
+            doctor_id: doctor_name,
+            start_date: start_date,
+            end_date: end_date,
+            medicine_name: medicine_name,
+            morning_time: morning_time,
+            day_time: day_time,
+            night_time: night_time
+        }
 
         var user_token = sessionStorage.getItem('user_token')
         var config = {
@@ -117,15 +118,15 @@ export class PrescriptionUpdate extends Component {
                                 <div className="form-group row">
                                     <label for="name" className="col-sm-3 col-form-label">Patient Name</label>
                                     <div className="col-sm-9">
-                                        <select className="form-control form-control-lg">
+                                        <select value={this.state.patient_name} onChange={(event) => this.setState({ patient_name: event.target.value })} className="form-control form-control-lg">
                                             {patientsData}
                                         </select>
-                                        </div>
+                                    </div>
                                 </div>
                                 <div className="form-group row">
                                     <label for="gender" className="col-sm-3 col-form-label">Doctor Name</label>
                                     <div className="col-sm-9">
-                                        <select className="form-control form-control-lg">
+                                        <select value={this.state.doctor_name} onChange={(event) => this.setState({ doctor_name: event.target.value })} className="form-control form-control-lg">
                                             {doctorsData}
                                         </select>  </div>
                                 </div>
