@@ -89,6 +89,7 @@ export class GetReports extends Component {
     render() {
         var reportData = this.state.reportData
         reportData = reportData.map((val, index) => {
+
             return (
                 <tr>
                     <td>{val.patient_id.name}</td>
@@ -113,7 +114,6 @@ export class GetReports extends Component {
         })
 
         var doctorsData = this.state.doctors.map((val, index) => {
-            console.log(val)
             return (
                 <option value={val._id}>{val.name}</option>
             )
@@ -125,7 +125,7 @@ export class GetReports extends Component {
                     <div className="card-body">
                         <h1 className="card-title float-left">Report List</h1>
 
-                        <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addPrescription'>
+                        <button type="button" className="float-right btn btn-dark btn-icon-text" data-toggle='modal' data-target='#addReport'>
                             <i className="mdi mdi-plus btn-icon-prepend"></i>
                             Add Report
                         </button>
@@ -168,7 +168,7 @@ export class GetReports extends Component {
                                         <div className="form-group row">
                                             <label for="name" className="col-sm-3 col-form-label">Patient Name</label>
                                             <div className="col-sm-9">
-                                                <select className="form-control form-control-lg">
+                                                <select ref="patientName" className="form-control form-control-lg">
                                                     {patientsData}
                                                 </select>
                                             </div>
@@ -176,7 +176,7 @@ export class GetReports extends Component {
                                         <div className="form-group row">
                                             <label for="gender" className="col-sm-3 col-form-label">Doctor Name</label>
                                             <div className="col-sm-9">
-                                                <select className="form-control form-control-lg">
+                                                <select ref="doctorName" className="form-control form-control-lg">
                                                     {doctorsData}
                                                 </select>
                                             </div>
@@ -201,6 +201,8 @@ export class GetReports extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                        <button type="submit" id="addContentbutton" className="btn btn-dark mr-2">Submit</button>
+                                        <button className="btn btn-light">Cancel</button>
                                     </div>
                                 </form>
                             </div>

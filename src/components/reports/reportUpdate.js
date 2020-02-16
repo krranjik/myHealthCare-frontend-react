@@ -107,7 +107,7 @@ export class ReportUpdate extends Component {
                                 <div className="form-group row">
                                     <label for="name" className="col-sm-3 col-form-label">Patient Name</label>
                                     <div className="col-sm-9">
-                                        <select className="form-control form-control-lg">
+                                        <select className="form-control form-control-lg" value={this.state.patient_name} onChange={(event) => this.setState({ patient_name: event.target.value })} ref="patientName">
                                             {patientsData}
                                         </select>
                                     </div>
@@ -115,20 +115,20 @@ export class ReportUpdate extends Component {
                                 <div className="form-group row">
                                     <label for="gender" className="col-sm-3 col-form-label">Doctor Name</label>
                                     <div className="col-sm-9">
-                                        <select className="form-control form-control-lg">
+                                        <select className="form-control form-control-lg" value={this.state.doctor_name} onChange={(event) => this.setState({ doctor_name: event.target.value })} ref="doctorName">
                                             {doctorsData}
                                         </select>  </div>
                                 </div>
                                 <div className="form-group row">
                                     <label for="department" className="col-sm-3 col-form-label">Report Name</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.report_name} onChange={(event) => this.setState({ report_name: event.target.value })} ref="startDate" />
+                                        <input type="text" className="form-control" value={this.state.report_name} onChange={(event) => this.setState({ report_name: event.target.value })} ref="reportName" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label for="phone" className="col-sm-3 col-form-label">Report Date</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={this.state.report_date} onChange={(event) => this.setState({ report_date: event.target.value })} ref="endDate" />
+                                        <input type="text" className="form-control" value={this.state.report_date} onChange={(event) => this.setState({ report_date: event.target.value })} ref="reportDate" />
                                     </div>
                                 </div>
                                 <div className="form-group">

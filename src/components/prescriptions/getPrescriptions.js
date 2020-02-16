@@ -46,7 +46,7 @@ export class GetPrescriptions extends Component {
         var end_date = this.refs.endDate.value
         var medicine_name = this.refs.medicineName.value
         var morning_time = this.refs.morningTime.value
-        var day_time = this.refs.datTime.value
+        var day_time = this.refs.dayTime.value
         var night_time = this.refs.nightTime.value
 
         var data = new FormData()
@@ -97,6 +97,7 @@ export class GetPrescriptions extends Component {
     }
     render() {
         var prescriptionData = this.state.prescriptionData
+
         prescriptionData = prescriptionData.map((val, index) => {
             return (
                 <tr>
@@ -181,7 +182,7 @@ export class GetPrescriptions extends Component {
                                         <div className="form-group row">
                                             <label for="name" className="col-sm-3 col-form-label">Patient Name</label>
                                             <div className="col-sm-9">
-                                                <select className="form-control form-control-lg">
+                                                <select ref="patientName" className="form-control form-control-lg">
                                                     {patientsData}
                                                 </select>
                                             </div>
@@ -189,7 +190,7 @@ export class GetPrescriptions extends Component {
                                         <div className="form-group row">
                                             <label for="gender" className="col-sm-3 col-form-label">Doctor Name</label>
                                             <div className="col-sm-9">
-                                                <select className="form-control form-control-lg">
+                                                <select ref="doctorName" className="form-control form-control-lg">
                                                     {doctorsData}
                                                 </select>
                                             </div>
