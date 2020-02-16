@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/includes/header'
 import Footer from '../components/includes/footer'
-import GetAppointment from '../components/appointment/getappointment.js'
+import GetAppointments from '../components/appointment/getAppointments.js'
 import Axios from 'axios'
 
 class Appointment extends Component {
@@ -21,6 +21,7 @@ class Appointment extends Component {
         }
         Axios.get('http://localhost:4444/getallappointment', config)
             .then((res) => {
+                console.log(res.data)
                 this.setState({
                     appointmentData: res.data
                 })
@@ -35,7 +36,7 @@ class Appointment extends Component {
         return (
             <div>
                 <Header />
-                <GetAppointment appointmentData={this.state.appointmentData} />
+                <GetAppointments appointmentData={this.state.appointmentData} />
                 <Footer />
             </div>
         )
